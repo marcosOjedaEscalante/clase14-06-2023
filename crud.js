@@ -23,13 +23,15 @@ const createArr = (persona) => {
     fs.writeFileSync('EstamosProbando.txt', datos);
 }
 
-const personaUno = new Persona('Joaquin');
-createArr(personaUno);
-
 // Read
+const readAll = () => {
+    let datos = fs.readFileSync('EstamosProbando.txt', 'utf-8');
+    datos = datos.replace('\r', '');
+    datos = datos.split('\n');
+    return datos;
+}
 
-
-
+console.log(readAll());
 // Update
 
 
