@@ -31,9 +31,19 @@ const readAll = () => {
     return datos;
 }
 
-console.log(readAll());
 // Update
+const update = (nombreAntiguo, nombreNuevo) => {
+    let datos = fs.readFileSync('EstamosProbando.txt', 'utf-8');
+    datos = datos.replace('\r', '');
+    datos = datos.split('\n');
+    // indexOf()
+    const indiceCambiar = datos.indexOf(nombreAntiguo);
+    // splice(indiceDesde, cantidad, valor)
+    datos.splice(indiceCambiar, 1, nombreNuevo);
+    datos = datos.join('\n');
+    fs.writeFileSync('EstamosProbando.txt', datos);
+}
 
-
+update('Francisco', 'Daniel');
 
 // Delete
