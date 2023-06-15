@@ -1,7 +1,12 @@
-const fs = require('fs');
+// Construcción de un CRUD
 
-console.log('Nuestro primer programa fuera del navegador');
+// La pila de ejecución de JS, De nojeJS
 
-const mensaje = 'Este mensaje aparecerá en el archivo si es que no necesitamos NPM';
 
-fs.writeFileSync('EstamosProbando.txt', mensaje);
+console.log('Inicio de programa'); // 1
+
+const mensaje = 'Ejecutando programa'; // 2
+
+console.log(mensaje); // 3
+
+console.log('Término de programa'); // 4
