@@ -44,6 +44,15 @@ const update = (nombreAntiguo, nombreNuevo) => {
     fs.writeFileSync('EstamosProbando.txt', datos);
 }
 
-update('Francisco', 'Daniel');
-
 // Delete
+const deleteName = (nombreEliminar) => {
+    let datos = fs.readFileSync('EstamosProbando.txt', 'utf-8');
+    datos = datos.replace('\r', '');
+    datos = datos.split('\n');
+    const indiceCambiar = datos.indexOf(nombreEliminar);
+    datos.splice(indiceCambiar, 1);
+    datos = datos.join('\n');
+    fs.writeFileSync('EstamosProbando.txt', datos);
+}
+
+deleteName('Antonio');
