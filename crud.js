@@ -16,17 +16,14 @@ const createCad = (persona) => {
 // Create con arreglos
 const createArr = (persona) => {
     let datos = fs.readFileSync('EstamosProbando.txt', 'utf-8');
-    let datosEscritura = '';
-    datos = datos.split('\r\n');
+    datos = datos.replace('\r', ''); // limpiando la cadena de \r y dejando solamente \n
+    datos = datos.split('\n');
     datos.push(persona.nombre);
-    console.log(datos);
-    datos.forEach((nombre) => {
-        datosEscritura = datosEscritura + nombre + '\n';
-    });
-    fs.writeFileSync('EstamosProbando.txt', datosEscritura);
+    datos = datos.join('\n');
+    fs.writeFileSync('EstamosProbando.txt', datos);
 }
 
-const personaUno = new Persona('Juanito');
+const personaUno = new Persona('Joaquin');
 createArr(personaUno);
 
 // Read
